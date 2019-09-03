@@ -221,7 +221,7 @@ dishRouter.route('/:dishId/comments/:commentId')
     .then((dish) => {
         if (dish != null && dish.comments.id(req.params.commentId) != null) {
             if (!dish.comments.id(req.params.commentId).author.equals(req.user.id)){
-                err = new Error('You are not authorized to perform this operation! Comment can only be updated by it\'s owner');
+                err = new Error('You are not authorized to perform this operation! Comment can only be deleted by it\'s owner');
                 err.status = 403;
                 return next (err);
             } else {
